@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/IDF_PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/IDF_PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/IDF_PATH/value=/c/Source/ESP32_Workspace/esp-idf
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/PATH/value=C\:\\msys32\\usr\\bin;C\:\\msys32\\mingw32\\bin;C\:\\msys32\\opt\\xtensa-esp32-elf\\bin
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/V/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/V/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/V/value=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.720307077/appendContributed=true
