@@ -8,7 +8,7 @@
 #include "sdkconfig.h"
 
 
-
+#define LOG_LOCAL_LEVEL ESP_LOG_DEBUG
 /*
 static int spiffsErrMap(spiffs *fs) {
 	int errorCode = SPIFFS_errno(fs);
@@ -106,24 +106,27 @@ static int vfs_open(void *ctx, char *path, int flags, int accessMode) {
 	logFlags(flags);
 	spiffs *fs = (spiffs *)ctx;
 	int spiffsFlags = 0;
-	if (flags & O_CREAT) {
-		spiffsFlags |= SPIFFS_CREAT;
-	}
-	if (flags & O_TRUNC) {
-		spiffsFlags |= SPIFFS_TRUNC;
-	}
-	if (flags & O_RDONLY) {
-		spiffsFlags |= SPIFFS_RDONLY;
-	}
-	if (flags & O_WRONLY) {
-		spiffsFlags |= SPIFFS_WRONLY;
-	}
-	if (flags & O_RDWR) {
-		spiffsFlags |= SPIFFS_RDWR;
-	}
-	if (flags & O_APPEND) {
-		spiffsFlags |= SPIFFS_APPEND;
-	}
+    int rw = (flags & 3);
+
+    if (rw == O_RDONLY || rw == O_RDWR) {
+    	spiffsFlags |= SPIFFS_RDONLY;
+    }
+
+    if (rw == O_WRONLY || rw == O_RDWR) {
+    	spiffsFlags |= SPIFFS_WRONLY;
+    }
+
+    if (flags & O_CREAT) {
+    	spiffsFlags |= SPIFFS_CREAT;
+    }
+
+    if (flags & O_TRUNC) {
+    	spiffsFlags |= SPIFFS_TRUNC;
+    }
+
+    if (flags & O_APPEND) {
+    	spiffsFlags |= SPIFFS_APPEND;
+    }
 	int rc = SPIFFS_open(fs, path, spiffsFlags, accessMode);
 	return rc;
 } // vfs_open
